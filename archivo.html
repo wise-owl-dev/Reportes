@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir archivos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .upload-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 500px;
+        }
+        h1 {
+            color: #ff6f61;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #247428;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #247428;
+        }
+        .menu-button {
+            background: linear-gradient(135deg, #247428, #247428);
+            border: 2px solid #247428;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .menu-button:hover {
+            background: linear-gradient(135deg, #247428, #247428);
+            color: #fff;
+            border-color: #296b27;
+            box-shadow: 0px 4px 10px rgba(78, 84, 200, 0.4);
+        }
+        input[type="file"] {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            margin: 20px 0;
+        }
+        label {
+            font-size: 24px;
+        }
+        #removeButton {
+            display: none;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #removeButton:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Archivos</h1>
+        <form action="archivopro.php" method="POST" enctype="multipart/form-data">
+            <label for="archivo">Reportes de salida, resguardo y préstamo</label><br><br>
+            <input type="file" name="archivo" id="archivo" required><br><br>
+
+            <button type="submit">Subir archivo</button>
+            <button type="button" class="menu-button" onclick="window.location.href='menu.php'">Menú</button>
+            <button type="button" id="removeButton" onclick="quitarArchivo()">Quitar archivo</button>
+        </form>
+    </div> 
+    <script>
+        const archivoInput = document.getElementById('archivo');
+        const removeButton = document.getElementById('removeButton');
+
+        archivoInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                removeButton.style.display = 'inline-block';
+            } else {
+                removeButton.style.display = 'none';
+            }
+        });
+
+        function quitarArchivo() {
+            archivoInput.value = ''; 
+            removeButton.style.display = 'none'; 
+        }
+    </script>
+</body>
+</html>
