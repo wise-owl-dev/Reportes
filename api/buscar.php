@@ -37,11 +37,12 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $output .= "<tr>";
         // ANTES: href='editar.php?id=...
+        // ANTES  href='reimprimir.php?id='
         // DESPUÉS:
         $output .= "<td>
-            <a href='../app/views/editar.php?id=" . htmlspecialchars($row['id']) . "' class='btn btn-info btn-action'>Editar</a>
+            <a href='editar.php?id=" . htmlspecialchars($row['id']) . "' class='btn btn-info btn-action'>Editar</a>
             <button class='btn btn-danger btn-action btn-delete' data-id='" . htmlspecialchars($row['id']) . "'>Eliminar</button>
-            <a href='reimprimir.php?id=" . htmlspecialchars($row['id']) . "' class='btn btn-info btn-action'>Imprimir</a>
+            <a href='../../api/reimprimir.php?id=" . htmlspecialchars($row['id']) . "' class='btn btn-info btn-action'>Imprimir</a>
         </td>";
         $output .= "<td>" . htmlspecialchars($row['id']) . "</td>";
         $output .= "<td>" . htmlspecialchars($row['nombre_del_trabajador']) . "</td>";

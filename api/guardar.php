@@ -60,7 +60,7 @@ $stmt->bind_param(
     $data['entrega_resguardo'], $data['recibe_prestamos_bienes'], $data['matricula_coordinacion'], $data['responsable_control_administrativo'], $data['matricula_administrativo']
 );
 if ($stmt->execute()) {
-    require __DIR__ . '/vendor/autoload.php';
+
 class PdfFiller {
     private $pdf;
     public function __construct() {
